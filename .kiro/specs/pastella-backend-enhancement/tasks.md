@@ -16,31 +16,31 @@ Bu doküman, Pastella Backend'i production-ready, mobil ve web uyumlu, güvenli 
 
 ### 1.1 Test Project Setup
 
-- [ ] 1.1.1 Create test project structure
-  - [ ] Create `Pastella.Backend.UnitTests` project
-  - [ ] Create `Pastella.Backend.IntegrationTests` project
+- [x] 1.1.1 Create test project structure
+  - [x] Create `Pastella.Backend.UnitTests` project
+  - [x] Create `Pastella.Backend.IntegrationTests` project
   - [ ] Create `Pastella.Backend.ApiTests` project
-  - [ ] Add project references to main projects
+  - [x] Add project references to main projects
 
-- [ ] 1.1.2 Install testing dependencies
-  - [ ] Install xUnit (v2.6.0)
-  - [ ] Install Moq (v4.20.0)
-  - [ ] Install FluentAssertions (v6.12.0)
-  - [ ] Install Microsoft.AspNetCore.Mvc.Testing (v9.0.0)
-  - [ ] Install Microsoft.EntityFrameworkCore.InMemory (v9.0.0)
-  - [ ] Install Coverlet.collector for code coverage
+- [x] 1.1.2 Install testing dependencies
+  - [x] Install xUnit (v2.6.0)
+  - [x] Install Moq (v4.20.0)
+  - [x] Install FluentAssertions (v6.12.0)
+  - [x] Install Microsoft.AspNetCore.Mvc.Testing (v9.0.0)
+  - [x] Install Microsoft.EntityFrameworkCore.InMemory (v9.0.0)
+  - [x] Install Coverlet.collector for code coverage
 
 ### 1.2 Unit Tests Implementation
 
-- [ ] 1.2.1 AuthService unit tests
-  - [ ] Test RegisterAsync with valid data
-  - [ ] Test RegisterAsync with duplicate email
-  - [ ] Test LoginAsync with valid credentials
-  - [ ] Test LoginAsync with invalid credentials
-  - [ ] Test RefreshTokenAsync with valid token
-  - [ ] Test RefreshTokenAsync with expired token
-  - [ ] Test ForgotPasswordAsync
-  - [ ] Test ResetPasswordAsync
+- [x] 1.2.1 AuthService unit tests
+  - [x] Test RegisterAsync with valid data
+  - [x] Test RegisterAsync with duplicate email
+  - [x] Test LoginAsync with valid credentials
+  - [x] Test LoginAsync with invalid credentials
+  - [x] Test RefreshTokenAsync with valid token
+  - [x] Test RefreshTokenAsync with expired token
+  - [x] Test ForgotPasswordAsync
+  - [x] Test ResetPasswordAsync
 
 - [ ] 1.2.2 OrderService unit tests
   - [ ] Test CreateOrder with valid data
