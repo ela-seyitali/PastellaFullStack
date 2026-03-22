@@ -70,8 +70,8 @@ Bu doküman, Pastella Backend'i production-ready, mobil ve web uyumlu, güvenli 
   - [ ] Test DeleteUser
   - [ ] Test GetUserProfile
 
-- [ ] 1.2.6 Repository unit tests with in-memory database
-  - [ ] Test OrderRepository CRUD operations
+- [x] 1.2.6 Repository unit tests with in-memory database
+  - [x] Test OrderRepository CRUD operations
   - [ ] Test CakeRepository CRUD operations
   - [ ] Test UserRepository CRUD operations
   - [ ] Test BakeryRepository CRUD operations
