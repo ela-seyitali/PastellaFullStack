@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services using extension methods
 builder.Services
-    .AddDatabase(builder.Configuration)
+    .AddDatabase(builder.Configuration, builder.Environment)
     .AddRepositories()
     .AddApplicationServices()
     .AddJwtAuthentication(builder.Configuration)
@@ -34,3 +34,6 @@ app.UseHttpsRedirection()
 
 app.MapControllers();
 app.Run();
+
+// Make the implicit Program class public for testing
+public partial class Program { }

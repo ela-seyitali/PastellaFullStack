@@ -228,7 +228,7 @@ public class OrderServiceTests
         _orderRepositoryMock.Verify(x => x.Update(It.IsAny<int>(), It.IsAny<Order>()), Times.Never);
     }
 
-    [Fact(Skip = "Bug in OrderService.GetTrackingSteps - anonymous type modification")]
+    [Fact]
     public async Task GetOrderTrackingInfo_WithValidOrder_ReturnsTrackingInfo()
     {
         // Arrange

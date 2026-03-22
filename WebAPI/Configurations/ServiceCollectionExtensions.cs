@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Pastella.Backend.Application.Services;
@@ -13,10 +14,19 @@ namespace Pastella.Backend.WebAPI.Configurations
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment? environment = null)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            {
+                if (environment?.EnvironmentName == "Testing")
+                {
+                    options.UseInMemoryDatabase($"TestDatabase_{Guid.NewGuid()}");
+                }
+                else
+                {
+                    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                }
+            });
             return services;
         }
 

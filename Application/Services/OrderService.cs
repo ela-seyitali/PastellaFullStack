@@ -217,22 +217,17 @@ namespace Pastella.Backend.Application.Services
 
         private List<object> GetTrackingSteps(string currentStatus)
         {
-            var allSteps = new List<object>
-            {
-                new { Step = "Pending", Description = "Sipariş alındı", IsCompleted = true },
-                new { Step = "Confirmed", Description = "Sipariş onaylandı", IsCompleted = false },
-                new { Step = "InProgress", Description = "Hazırlanıyor", IsCompleted = false },
-                new { Step = "Ready", Description = "Hazır", IsCompleted = false },
-                new { Step = "Delivered", Description = "Teslim edildi", IsCompleted = false }
-            };
-
             var statusOrder = new[] { "Pending", "Confirmed", "InProgress", "Ready", "Delivered" };
             var currentIndex = Array.IndexOf(statusOrder, currentStatus);
 
-            for (int i = 0; i <= currentIndex && i < allSteps.Count; i++)
+            var allSteps = new List<object>
             {
-                ((dynamic)allSteps[i]).IsCompleted = true;
-            }
+                new { Step = "Pending", Description = "Sipariş alındı", IsCompleted = currentIndex >= 0 },
+                new { Step = "Confirmed", Description = "Sipariş onaylandı", IsCompleted = currentIndex >= 1 },
+                new { Step = "InProgress", Description = "Hazırlanıyor", IsCompleted = currentIndex >= 2 },
+                new { Step = "Ready", Description = "Hazır", IsCompleted = currentIndex >= 3 },
+                new { Step = "Delivered", Description = "Teslim edildi", IsCompleted = currentIndex >= 4 }
+            };
 
             return allSteps;
         }
