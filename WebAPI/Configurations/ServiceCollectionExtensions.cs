@@ -82,5 +82,45 @@ namespace Pastella.Backend.WebAPI.Configurations
                     .AddScoped<IRepository<DeviceToken>, DeviceTokenRepository>(); // DeviceToken repository eklendi
             return services;
         }
+
+        public static IServiceCollection AddRateLimiting(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddMemoryCache();
+            services.Configure<AspNetCoreRateLimit.IpRateLimitOptions>(options =>
+            {
+                options.EnableEndpointRateLimiting = true;
+                options.StackBlockedRequests = false;
+                options.HttpStatusCode = 429;
+                options.RealIpHeader = "X-Real-IP";
+                options.GeneralRules = new List<AspNetCoreRateLimit.RateLimitRule>
+                {
+                    new AspNetCoreRateLimit.RateLimitRule
+                    {
+                        Endpoint = "*",
+                        Period = "1m",
+                        Limit = 60
+                    },
+                    new AspNetCoreRateLimit.RateLimitRule
+                    {
+                        Endpoint = "*/api/auth/*",
+                        Period = "1m",
+                        Limit = 10
+                    },
+                    new AspNetCoreRateLimit.RateLimitRule
+                    {
+                        Endpoint = "*/api/order/*",
+                        Period = "1m",
+                        Limit = 30
+                    }
+                };
+            });
+
+            services.AddSingleton<AspNetCoreRateLimit.IIpPolicyStore, AspNetCoreRateLimit.MemoryCacheIpPolicyStore>();
+            services.AddSingleton<AspNetCoreRateLimit.IRateLimitCounterStore, AspNetCoreRateLimit.MemoryCacheRateLimitCounterStore>();
+            services.AddSingleton<AspNetCoreRateLimit.IRateLimitConfiguration, AspNetCoreRateLimit.RateLimitConfiguration>();
+            services.AddSingleton<AspNetCoreRateLimit.IProcessingStrategy, AspNetCoreRateLimit.AsyncKeyLockProcessingStrategy>();
+
+            return services;
+        }
     }
 }

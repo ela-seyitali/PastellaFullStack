@@ -36,13 +36,14 @@ namespace Pastella.Backend.Infrastructure.Repositories
 
         public async Task Update(int id, Notification entity)
         {
-            var existingNotification = await _context.Notifications.FindAsync(id);
+            var existingNotification = await _context.Notifications
+                .AsNoTracking()
+                .FirstOrDefaultAsync(n => n.Id == id);
+                
             if (existingNotification != null)
             {
-                existingNotification.Type = entity.Type;
-                existingNotification.Message = entity.Message;
-                existingNotification.IsRead = entity.IsRead;
-
+                entity.Id = id;
+                _context.Notifications.Update(entity);
                 await _context.SaveChangesAsync();
             }
         }

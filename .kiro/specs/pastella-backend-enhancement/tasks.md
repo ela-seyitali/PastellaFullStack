@@ -50,12 +50,12 @@ Bu doküman, Pastella Backend'i production-ready, mobil ve web uyumlu, güvenli 
   - [x] Test CancelOrder
   - [x] Test GetOrderTracking (skipped due to production bug)
 
-- [ ] 1.2.3 NotificationService unit tests
-  - [ ] Test CreateNotification
-  - [ ] Test SendPromotionNotification
-  - [ ] Test SendBirthdayReminder
-  - [ ] Test SendDeliveryNotification
-  - [ ] Test MarkAsRead
+- [x] 1.2.3 NotificationService unit tests
+  - [x] Test CreateNotification
+  - [x] Test SendPromotionNotification
+  - [x] Test SendBirthdayReminder
+  - [x] Test SendDeliveryNotification
+  - [x] Test MarkAsRead
 
 - [x] 1.2.4 CakeService unit tests
   - [x] Test GetAllCakes
@@ -64,17 +64,17 @@ Bu doküman, Pastella Backend'i production-ready, mobil ve web uyumlu, güvenli 
   - [x] Test UpdateCake
   - [x] Test DeleteCake
 
-- [ ] 1.2.5 UserService unit tests
-  - [ ] Test GetUserById
-  - [ ] Test UpdateUser
-  - [ ] Test DeleteUser
-  - [ ] Test GetUserProfile
+- [x] 1.2.5 UserService unit tests
+  - [x] Test GetUserById
+  - [x] Test UpdateUser
+  - [x] Test DeleteUser
+  - [x] Test GetUserProfile
 
 - [x] 1.2.6 Repository unit tests with in-memory database
   - [x] Test OrderRepository CRUD operations
-  - [ ] Test CakeRepository CRUD operations
-  - [ ] Test UserRepository CRUD operations
-  - [ ] Test BakeryRepository CRUD operations
+  - [x] Test CakeRepository CRUD operations
+  - [x] Test UserRepository CRUD operations
+  - [x] Test BakeryRepository CRUD operations
 
 ### 1.3 Integration Tests Implementation
 

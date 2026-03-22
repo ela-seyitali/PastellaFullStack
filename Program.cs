@@ -15,6 +15,7 @@ builder.Services
     .AddRepositories()
     .AddApplicationServices()
     .AddJwtAuthentication(builder.Configuration)
+    .AddRateLimiting(builder.Configuration)
     .AddApiServices();
 
 var app = builder.Build();
@@ -27,6 +28,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection()
    .UseCors("AllowAll")
+   .UseMiddleware<AspNetCoreRateLimit.IpRateLimitMiddleware>()
    .UseAuthentication()
    .UseAuthorization();
 
